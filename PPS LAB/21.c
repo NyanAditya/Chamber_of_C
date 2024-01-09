@@ -1,28 +1,24 @@
+// 21. Write a program to find the sum of all elements of an array.
+// Author: Aditya Singh (NyanAitya)
+
 #include <stdio.h>
 
-#define SIZE 5
-
 int main() {
-    int array1[SIZE], array2[SIZE], sum[SIZE];
-    
-    printf("Enter elements of array1:\n");
-    for (int i = 0; i < SIZE; i++) {
-        scanf("%d", &array1[i]);
+    int n, i, size, sum = 0;
+
+    printf("Enter the number of elements in the array: ");
+    scanf("%d", &n);
+
+    int arr[n];
+
+    printf("Enter elements:\n");
+    for (i = 0; i < n; i++) {
+        printf("Enter element %d: ", i+1);
+        scanf("%d", &arr[i]);
+        sum += arr[i];
     }
-    
-    printf("Enter elements of array2:\n");
-    for (int i = 0; i < SIZE; i++) {
-        scanf("%d", &array2[i]);
-    }
-    
-    for (int i = 0; i < SIZE; i++) {
-        sum[i] = array1[i] + array2[i];
-    }
-    
-    printf("Sum of corresponding elements:\n");
-    for (int i = 0; i < SIZE; i++) {
-        printf("%d ", sum[i]);
-    }
-    
+
+    printf("Sum of elements: %d\n", sum);
+
     return 0;
 }
