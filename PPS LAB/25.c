@@ -1,3 +1,7 @@
+// Bubble Sort Algorithm
+// 25. Write a program to sort an array of integers using bubble sort algorithm.
+// Author: Aditya Singh
+
 #include <stdio.h>
 
 void bubbleSort(int arr[], int len){
