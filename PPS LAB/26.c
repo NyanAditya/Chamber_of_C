@@ -55,18 +55,21 @@ int main() {
     printf("Enter number of columns: ");
     scanf("%d", &cols);
 
-    int mat1[rows][cols], mat2[rows][cols], add[rows][cols];
+    int mat1[rows][cols], mat2[rows][cols], add[rows][cols], mul[rows][cols];
 
     printf("\nEnter Matrix 1:\n");
     getMatrix(rows, cols, mat1);
 
     printf("\nEnter Matrix 2:\n");
     getMatrix(rows, cols, mat2);
-
-    addMatrices(rows, cols, mat1, mat2, add);
     
     printf("Addition of matrices:\n");
+    addMatrices(rows, cols, mat1, mat2, add);
     printMatrix(rows, cols, add);
+
+    printf("\nMultiplication of matrices:\n");
+    multiplyMatrices(rows, cols, mat1, mat2, mul);
+    printMatrix(rows, cols, mul);
     
     return 0;
 }
