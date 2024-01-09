@@ -1,6 +1,10 @@
+// A program to implement linear search
+// Author: Aditya Singh
+
 #include <stdio.h>
 
-int linearSearch(int arr[], int len, int key) {
+int linearSearch(int arr[], int len, int key)
+{
     for (int i = 0; i < len; i++)
     {
         if (arr[i] == key)
@@ -11,7 +15,8 @@ int linearSearch(int arr[], int len, int key) {
     return -1; // Element not found
 }
 
-int main() {
+int main()
+{
     int arr[] = {5, 10, 15, 20, 25};
     int len = sizeof(arr) / sizeof(arr[0]);
     int key;
