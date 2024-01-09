@@ -3,7 +3,7 @@
 // program to add & multiply two matrices of order m*n
 #include <stdio.h>
 
-void getMatrix(int rows, int cols, int mat[rows][cols]) {
+void getMat(int rows, int cols, int mat[rows][cols]) {
 
     printf("\nEnter matrix elements!\n");
 
@@ -16,7 +16,7 @@ void getMatrix(int rows, int cols, int mat[rows][cols]) {
     } 
 }
 
-void printMatrix(int rows, int cols, int mat[rows][cols]) {
+void printMat(int rows, int cols, int mat[rows][cols]) {
 
     for (int i = 0; i < rows; i++) {
         for (int j = 0; j < cols; j++) {
@@ -26,7 +26,7 @@ void printMatrix(int rows, int cols, int mat[rows][cols]) {
     }
 }
 
-void addMatrices(int rows, int cols, int mat1[rows][cols], int mat2[rows][cols], int result[rows][cols]) {
+void addMat(int rows, int cols, int mat1[rows][cols], int mat2[rows][cols], int result[rows][cols]) {
  
     for (int i = 0; i < rows; i++) {
         for (int j = 0; j < cols; j++) {
@@ -35,7 +35,7 @@ void addMatrices(int rows, int cols, int mat1[rows][cols], int mat2[rows][cols],
     }
 }
 
-void multiplyMatrices(int rows, int cols, int mat1[rows][cols], int mat2[rows][cols], int result[rows][cols]) {
+void multiplyMat(int rows, int cols, int mat1[rows][cols], int mat2[rows][cols], int result[rows][cols]) {
 
     if (rows != cols) {
         printf("Matrices cannot be multiplied!\n");
@@ -64,18 +64,18 @@ int main() {
     int mat1[rows][cols], mat2[rows][cols], add[rows][cols], mul[rows][cols];
 
     printf("\nEnter Matrix 1:\n");
-    getMatrix(rows, cols, mat1);
+    getMat(rows, cols, mat1);
 
     printf("\nEnter Matrix 2:\n");
-    getMatrix(rows, cols, mat2);
+    getMat(rows, cols, mat2);
     
     printf("Addition of matrices:\n");
-    addMatrices(rows, cols, mat1, mat2, add);
-    printMatrix(rows, cols, add);
+    addMat(rows, cols, mat1, mat2, add);
+    printMat(rows, cols, add);
 
     printf("\nMultiplication of matrices:\n");
-    multiplyMatrices(rows, cols, mat1, mat2, mul);
-    printMatrix(rows, cols, mul);
+    multiplyMat(rows, cols, mat1, mat2, mul);
+    printMat(rows, cols, mul);
     
     return 0;
 }

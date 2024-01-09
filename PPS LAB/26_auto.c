@@ -3,7 +3,7 @@
 #define ROWS 3
 #define COLS 3
 
-void addMatrices(int mat1[ROWS][COLS], int mat2[ROWS][COLS], int result[ROWS][COLS]) {
+void addMat(int mat1[ROWS][COLS], int mat2[ROWS][COLS], int result[ROWS][COLS]) {
     for (int i = 0; i < ROWS; i++) {
         for (int j = 0; j < COLS; j++) {
             result[i][j] = mat1[i][j] + mat2[i][j];
@@ -11,7 +11,7 @@ void addMatrices(int mat1[ROWS][COLS], int mat2[ROWS][COLS], int result[ROWS][CO
     }
 }
 
-void multiplyMatrices(int mat1[ROWS][COLS], int mat2[ROWS][COLS], int result[ROWS][COLS]) {
+void multiplyMat(int mat1[ROWS][COLS], int mat2[ROWS][COLS], int result[ROWS][COLS]) {
     for (int i = 0; i < ROWS; i++) {
         for (int j = 0; j < COLS; j++) {
             result[i][j] = 0;
@@ -22,7 +22,7 @@ void multiplyMatrices(int mat1[ROWS][COLS], int mat2[ROWS][COLS], int result[ROW
     }
 }
 
-void printMatrix(int mat[ROWS][COLS]) {
+void printMat(int mat[ROWS][COLS]) {
     for (int i = 0; i < ROWS; i++) {
         for (int j = 0; j < COLS; j++) {
             printf("%d ", mat[i][j]);
@@ -37,18 +37,18 @@ int main() {
     int result[ROWS][COLS];
 
     printf("Matrix 1:\n");
-    printMatrix(mat1);
+    printMat(mat1);
 
     printf("\nMatrix 2:\n");
-    printMatrix(mat2);
+    printMat(mat2);
 
     printf("\nAddition of matrices:\n");
-    addMatrices(mat1, mat2, result);
-    printMatrix(result);
+    addMat(mat1, mat2, result);
+    printMat(result);
 
     printf("\nMultiplication of matrices:\n");
-    multiplyMatrices(mat1, mat2, result);
-    printMatrix(result);
+    multiplyMat(mat1, mat2, result);
+    printMat(result);
 
     return 0;
 }

@@ -3,7 +3,7 @@
 
 #include <stdio.h>
 
-void getMatrix(int rows, int cols, int mat[rows][cols]) {
+void getMat(int rows, int cols, int mat[rows][cols]) {
 
     printf("\nEnter matrix elements!\n");
 
@@ -16,7 +16,7 @@ void getMatrix(int rows, int cols, int mat[rows][cols]) {
     } 
 }
 
-void printMatrix(int rows, int cols, int mat[rows][cols]) {
+void printMat(int rows, int cols, int mat[rows][cols]) {
 
     for (int i = 0; i < rows; i++) {
         for (int j = 0; j < cols; j++) {
@@ -46,7 +46,7 @@ int main() {
 
     int mat[rows][cols];
     printf("\nEnter Matrix: \n");
-    getMatrix(rows, cols, mat);
+    getMat(rows, cols, mat);
 
     printf("\nTrace of matrix: %d\n", traceMat(rows, cols, mat));
 
