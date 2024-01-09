@@ -1,4 +1,5 @@
 // Creation Date: 18-03-2021
+// Author: Aditya Singh
 // program to add & multiply two matrices of order m*n
 #include <stdio.h>
 
