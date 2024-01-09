@@ -1,4 +1,4 @@
-// 27. Write a program to find the trace of a matrix. (Trace of a matrix is the sum of all the elements of the main diagonal of the matrix).
+// 27. Write a program to find the sum of diagonal elements of a matrix.
 // Author: Aditya Singh
 
 #include <stdio.h>
@@ -26,6 +26,7 @@ void printMat(int rows, int cols, int mat[rows][cols]) {
     }
 }
 
+// here trace means sum of diagonal elements for even a non-square matrix
 int traceMat(int rows, int cols, int mat[rows][cols]) {
 
     int trace = 0;
@@ -38,11 +39,13 @@ int traceMat(int rows, int cols, int mat[rows][cols]) {
 }
 int main() {
 
-    int rows;
-    printf("Enter order of matrix: ");
-    scanf("%d", &rows);
+    int rows, cols;
 
-    int cols = rows;
+    printf("Enter rows of matrix: ");
+    scanf("%d", &rows);
+    printf("Enter number of columns: ");
+    scanf("%d", &cols);
+
 
     int mat[rows][cols];
     printf("\nEnter Matrix: \n");
