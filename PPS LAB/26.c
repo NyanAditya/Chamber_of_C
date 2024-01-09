@@ -36,6 +36,11 @@ void addMatrices(int rows, int cols, int mat1[rows][cols], int mat2[rows][cols],
 
 void multiplyMatrices(int rows, int cols, int mat1[rows][cols], int mat2[rows][cols], int result[rows][cols]) {
 
+    if (rows != cols) {
+        printf("Matrices cannot be multiplied!\n");
+        return;
+    }
+
     for (int i = 0; i < rows; i++) {
         for (int j = 0; j < cols; j++) { 
             result[i][j] = 0;
