@@ -27,7 +27,7 @@ int main(int argc, char const *argv[])
             n /= 10;
             i++;
         }
-        printf("Dcimal: %d", sum);
+        printf("Decimal: %d", sum);
 
     d2b:
         int j=0;
