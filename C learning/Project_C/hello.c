@@ -1,12 +1,11 @@
 #include<stdio.h>
-#include<conio.h>
+#include<stdlib.h>
 
 int main(){
-    int a;
-    scanf("%d", &a);
-    printf("%d ", a*a);
+
     printf("Hello, World!");
-    return 1;
+    exit(1);
+    return 0;
     }
 
     
