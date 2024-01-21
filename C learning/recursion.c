@@ -1,3 +1,8 @@
+/**
+ * This program calculates the prime factors of a given number using recursion.
+ * It takes an input number from the user and prints the prime factors of that number.
+ */
+
 #include <stdio.h>
 
 void primeFactorization(int n, int divisor) {
