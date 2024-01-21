@@ -10,12 +10,12 @@ int main() {
     unsigned int unsignedInteger = 4294967295;
 
     printf("Integer: %d\n", integer);
-    // printf("Floating Point: %f\n", floatingPoint);
-    // printf("Character: %c\n", character);
-    // printf("String: %s\n", string);
-    // printf("Double Precision: %lf\n", doublePrecision);
-    // printf("Long Integer: %d\n", longInteger);
-    // printf("Unsigned Integer: %u\n", unsignedInteger);
+    printf("Floating Point: %f\n", floatingPoint);
+    printf("Character: %c\n", character);
+    printf("String: %s\n", string);
+    printf("Double Precision: %lf\n", doublePrecision);
+    printf("Long Integer: %d\n", longInteger);
+    printf("Unsigned Integer: %u\n", unsignedInteger);
 
     printf("\nInteger Address: %p\n", &integer);
     
