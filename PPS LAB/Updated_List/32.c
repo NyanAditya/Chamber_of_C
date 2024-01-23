@@ -46,13 +46,9 @@ int main()
     for (int i = 0; i < 3; i++)
     {
         printf("Details of student %d:\n", i + 1);
-
         printf("ID: %s\n", s[i].id);
-
         printf("Name: %s\n", s[i].name);
-
         printf("Age: %d\n", s[i].age);
-
         printf("Marks: %0.2f\n", s[i].marks);
 
         printf("\n");
