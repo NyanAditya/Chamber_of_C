@@ -8,8 +8,8 @@ int main(){
 
     int *ptr=arr;
 
-    int min=*ptr;
-    int max=*ptr;
+    int min, max;
+    min = max = *ptr;
 
     int size = sizeof(arr)/sizeof(arr[0]);
 
@@ -18,7 +18,7 @@ int main(){
             min = *(ptr+i);
         }
 
-        if(*(ptr+i) > max){
+        else if(*(ptr+i) > max){
             max = *(ptr+i);
         }
     }

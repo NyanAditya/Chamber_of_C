@@ -50,8 +50,7 @@ void selSort(int arr[], int size)
         for (int j = i + 1; j < size; j++)
         {
 
-            if (arr[j] < *min)
-                min = &arr[j];
+            if (arr[j] < *min)  min = &arr[j];
         }
 
         // Swap the minimum element of the unsorted array with the first element of the unsorted array

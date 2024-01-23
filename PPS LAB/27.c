@@ -16,27 +16,8 @@ void getMat(int rows, int cols, int mat[rows][cols]) {
     } 
 }
 
-void printMat(int rows, int cols, int mat[rows][cols]) {
+int traceMat(int rows, int cols, int mat[rows][cols]);
 
-    for (int i = 0; i < rows; i++) {
-        for (int j = 0; j < cols; j++) {
-            printf("%d ", mat[i][j]);
-        }
-        printf("\n");
-    }
-}
-
-// here trace means sum of diagonal elements for even a non-square matrix
-int traceMat(int rows, int cols, int mat[rows][cols]) {
-
-    int trace = 0;
-
-    for (int i = 0; i < rows; i++) {
-        trace += mat[i][i];
-    }
-
-    return trace;
-}
 int main() {
 
     int rows, cols;
@@ -54,4 +35,17 @@ int main() {
     printf("\nTrace of matrix: %d\n", traceMat(rows, cols, mat));
 
     return 0;
+}
+
+// here trace means sum of diagonal elements for even a non-square matrix
+int traceMat(int rows, int cols, int mat[rows][cols]) {
+
+    int trace = 0;
+
+    for (int i = 0; i < rows; i++) {
+        trace += mat[i][i];
+    }
+
+    return trace;
+
 }

@@ -1,5 +1,6 @@
-/*32.	Define a structure data type name STUDENT. The type contains student id: string type, student name: type string, student age:type integer, total marks: float type.
-Display all the record of the student.*/
+/*32.	Define a structure data type name STUDENT. The type contains student id: string type, student name: type string,
+student age:type integer, total marks: float type.
+Display all the record of the n students using array structure */
 
 #include <stdio.h>
 
@@ -27,10 +28,11 @@ int main()
 
         getchar();
         printf("ID: ");
-        scanf("%s", s[i].id);
+        scanf("%s", &s[i].id);
 
         printf("Name: ");
         gets(s[i].name);
+        getchar();
 
         printf("Age: ");
         scanf("%d", &s[i].age);
