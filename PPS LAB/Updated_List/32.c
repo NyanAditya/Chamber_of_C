@@ -15,7 +15,7 @@ struct student
 int main()
 {
     int n;
-    printf("Enter no. of students:");
+    printf("Enter no. of students: ");
     scanf("%d", &n);
 
     struct student s[n];
@@ -26,13 +26,12 @@ int main()
     {
         printf("Enter the details of student %d:\n", i + 1);
 
-        getchar();
         printf("ID: ");
         scanf("%s", &s[i].id);
 
+        getchar();
         printf("Name: ");
         gets(s[i].name);
-        getchar();
 
         printf("Age: ");
         scanf("%d", &s[i].age);
@@ -45,7 +44,7 @@ int main()
 
     printf("\n");
 
-    for (int i = 0; i < 3; i++)
+    for (int i = 0; i < n; i++)
     {
         printf("Details of student %d:\n", i + 1);
         printf("ID: %s\n", s[i].id);
