@@ -46,10 +46,10 @@ int main()
 {
     char s1[100], s2[100];
 
-    printf("Enter 1st the string: ");
+    printf("Enter 1st string: ");
     gets(s1);
 
-    printf("Enter 2nd the string: ");
+    printf("Enter 2nd string: ");
     gets(s2);
 
     printf("Length of the 1st string: %d\n", Zstrlen(s1));

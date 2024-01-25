@@ -56,7 +56,7 @@ void selSort(int arr[], int size){
 
     //     swap(&arr[i], &arr[min_index]);
     //     printarr(arr, size);
-    // }
+    // }    
     
 
 }

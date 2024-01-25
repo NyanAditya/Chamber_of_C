@@ -17,7 +17,7 @@ int main() {
     printf("Long Integer: %d\n", longInteger);
     printf("Unsigned Integer: %u\n", unsignedInteger);
 
-    printf("\nInteger Address: %p\n", &integer);
+//    printf("\nInteger Address: %p\n", &integer);
     
     
 
