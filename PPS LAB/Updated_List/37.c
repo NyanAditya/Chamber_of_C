@@ -43,5 +43,8 @@ int main(){
         }
     }
 
+    fclose(fpr1);
+    fclose(fpr2);
+
     return 0;
 }
