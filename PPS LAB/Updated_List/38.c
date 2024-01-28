@@ -11,15 +11,15 @@ int main(){
     printf("Enter the path of the file: ");
     gets(path);
 
-    printf("Enter the word to be searched: ");
-    scanf("%s", &target_word);
-
     fp = fopen(path, "r");
 
     if (fp == NULL){
         printf("File not found!");
         exit(1);
     }
+
+    printf("Enter the word to be searched: ");
+    scanf("%s", &target_word);
 
     char current_word[100];
     int ch, i=0;
@@ -43,7 +43,7 @@ int main(){
     }
 
     if (word_counter == 0) printf("Word not found!\n");
-    else printf("Word found %d times\n", word_counter);
+    else printf("%d Matches Found\n", word_counter);
 
     fclose(fp);
 
