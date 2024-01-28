@@ -4,7 +4,7 @@
 
 int main(){
 
-    printf("Enter the number of rows: ");
+    printf("Enter the number of rows(from Base): ");
     int rows; scanf("%d", &rows);
 
     // Upper half with base

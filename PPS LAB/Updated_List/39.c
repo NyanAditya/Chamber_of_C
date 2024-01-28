@@ -13,7 +13,6 @@ int main(){
 
     printf("Enter the number of rows: ");
     int rows; scanf("%d", &rows);
-    char buffer[rows+1];
 
     switch (choice){
         case 1:
