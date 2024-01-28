@@ -27,18 +27,13 @@ int main(){
         ch1 = fgetc(fpr1);
         ch2 = fgetc(fpr2);
 
-        if(ch1 == EOF || ch2 == EOF){
-            if(ch1 == EOF && ch2 == EOF){
-                printf("Both files are same\n");
-            }
-            else{
-                printf("Both files are not same\n");
-            }
-            break;
-        }
-
-        if(ch1 != ch2){
+        if ((ch1 == EOF && ch2 != EOF) || (ch1 != EOF && ch2 == EOF) || ch1 != ch2) {
             printf("Both files are not same\n");
+            break;
+        } 
+        
+        else if (ch1 == EOF && ch2 == EOF) {
+            printf("Both files are same\n");
             break;
         }
     }
