@@ -1,10 +1,10 @@
 #include<stdio.h>
 #include<math.h>
 
-int main(int argc, char const *argv[])
+int main()
 {
     int c=1, dig_len, sum=0, temp;
-    while(c<=100000000)
+    while(c<=1000)
     {
         dig_len = log10(c)+1;
         sum = 0;
