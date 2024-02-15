@@ -3,6 +3,8 @@
 #define MAX(a, b) ((a) > (b) ? (a) : (b))
 #define SQUARE(x) ((x) * (x))
 
+#define DEBUG 1
+
 #ifndef MESSAGE
     #define MESSAGE "Hello, World!"
 #endif
