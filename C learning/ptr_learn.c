@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 void swap(int *a, int *b) {
-    printf("%d %d\n", a, b); // 6422296 6422292 (addresses of num1 and num2)
+    printf("%p %p\n", a, b); // 6422296 6422292 (addresses of num1 and num2)
 
     int *temp = a;
     a = b;
