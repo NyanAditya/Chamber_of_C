@@ -87,35 +87,41 @@ void free_singly_linked_list(SinglyLinkedListNode *node)
  * };
  *
  */
+
 SinglyLinkedListNode *mergeLists(SinglyLinkedListNode *head1, SinglyLinkedListNode *head2)
 {
 
-    SinglyLinkedListNode *temp1 = head1, *temp2 = head2;
+    SinglyLinkedListNode dummy;
+    SinglyLinkedListNode *tail = &dummy;
+    dummy.next = NULL;
 
-    SinglyLinkedList *mergedList = malloc(sizeof(SinglyLinkedList));
-    mergedList->head = NULL;
-    mergedList->tail = NULL;
-
-    while (temp1 || temp2)
+    while (head1 && head2)
     {
-
-        if (temp1->data > temp2->data)
+        if (head1->data < head2->data)
         {
-            insert_node_into_singly_linked_list(&mergedList, temp2->data);
+            tail->next = head1;
+            head1 = head1->next;
         }
-
-        else if (temp2->data > temp1->data)
-        {
-            insert_node_into_singly_linked_list(&mergedList, temp1->data);
-        }
-
         else
         {
-            insert_node_into_singly_linked_list(&mergedList, temp1->data);
-            insert_node_into_singly_linked_list(&mergedList, temp2->data);
+            tail->next = head2;
+            head2 = head2->next;
         }
+        tail = tail->next;
     }
+
+    if (head1 != NULL)
+    {
+        tail->next = head1;
+    }
+    else
+    {
+        tail->next = head2;
+    }
+
+    return dummy.next;
 }
+
 int main()
 {
     FILE *fptr = fopen(getenv("OUTPUT_PATH"), "w");
