@@ -85,7 +85,6 @@ void free_singly_linked_list(SinglyLinkedListNode *node)
  *     int data;
  *     SinglyLinkedListNode* next;
  * };
- *
  */
 
 SinglyLinkedListNode *mergeLists(SinglyLinkedListNode *head1, SinglyLinkedListNode *head2)
