@@ -1,82 +1,108 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// Node structure for the doubly linked list
+// Node structure for the circular linked list
 struct Node
 {
     int data;
-    struct Node *prev;
     struct Node *next;
 };
 
-// Insert at the end of the doubly linked list
+// Insert a new node at the end of the circular linked list
 void insert(struct Node **head_ref, int new_data)
 {
     struct Node *new_node = (struct Node *)malloc(sizeof(struct Node));
-    struct Node *last = *head_ref;
+    struct Node *temp = *head_ref;
     new_node->data = new_data;
-    new_node->next = NULL;
+    new_node->next = *head_ref;
 
     if (*head_ref == NULL)
     {
-        new_node->prev = NULL;
+        new_node->next = new_node;
         *head_ref = new_node;
         return;
     }
 
-    while (last->next != NULL)
-        last = last->next;
+    while (temp->next != *head_ref)
+        temp = temp->next;
 
-    last->next = new_node;
-    new_node->prev = last;
+    temp->next = new_node;
 }
 
-// Display the doubly linked list
-void display(struct Node *node)
+// Display the circular linked list
+void display(struct Node *head)
 {
-    struct Node *last;
-    printf("Traversal in forward direction:\n");
-    while (node != NULL)
+    struct Node *temp = head;
+    if (head != NULL)
     {
-        printf("%d ", node->data);
-        last = node;
-        node = node->next;
+        do
+        {
+            printf("%d ", temp->data);
+            temp = temp->next;
+        } while (temp != head);
+        printf("\n");
     }
-    printf("\n");
+    else
+    {
+        printf("List is empty.\n");
+    }
 }
 
-// Delete a node from the doubly linked list
+// Delete a node with a specific value from the circular linked list
 void deleteNode(struct Node **head_ref, int key)
 {
-    struct Node *temp = *head_ref;
-
     if (*head_ref == NULL)
         return;
 
-    while (temp != NULL && temp->data != key)
-        temp = temp->next;
+    struct Node *temp = *head_ref, *prev;
 
-    if (temp == NULL)
+    // If the node to be deleted is the head
+    if (temp->data == key && temp->next == *head_ref)
+    {
+        *head_ref = NULL;
+        free(temp);
         return;
+    }
 
-    if (*head_ref == temp)
+    // If the node to be deleted is the head and the list has more than one node
+    if (temp->data == key)
+    {
+        while (temp->next != *head_ref)
+            temp = temp->next;
+        temp->next = (*head_ref)->next;
+        free(*head_ref);
         *head_ref = temp->next;
+        return;
+    }
 
-    if (temp->next != NULL)
-        temp->next->prev = temp->prev;
+    // If the node to be deleted is not the head
+    prev = temp;
+    while (temp->next != *head_ref && temp->data != key)
+    {
+        prev = temp;
+        temp = temp->next;
+    }
 
-    if (temp->prev != NULL)
-        temp->prev->next = temp->next;
-
-    free(temp);
+    if (temp->data == key)
+    {
+        prev->next = temp->next;
+        free(temp);
+    }
 }
 
-// Search for a key in the doubly linked list
+// Search for a specific value in the circular linked list
 void search(struct Node *head, int key)
 {
     struct Node *temp = head;
     int pos = 0;
-    while (temp != NULL)
+
+    if (head == NULL)
+    {
+        printf("List is empty.\n");
+        return;
+    }
+
+    do
     {
         if (temp->data == key)
         {
@@ -85,20 +111,26 @@ void search(struct Node *head, int key)
         }
         temp = temp->next;
         pos++;
-    }
+    } while (temp != head);
+
     printf("Element %d not found in the list\n", key);
 }
 
-// Count the number of nodes in the doubly linked list
+// Count the number of nodes in the circular linked list
 int count(struct Node *head)
 {
     int count = 0;
     struct Node *temp = head;
-    while (temp != NULL)
+
+    if (head == NULL)
+        return 0;
+
+    do
     {
         count++;
         temp = temp->next;
-    }
+    } while (temp != head);
+
     return count;
 }
 
@@ -109,7 +141,7 @@ int main()
 
     while (1)
     {
-        printf("\nDoubly Linked List Operations:\n");
+        printf("\nCircular Linked List Operations:\n");
         printf("1. Insert\n");
         printf("2. Display\n");
         printf("3. Delete\n");

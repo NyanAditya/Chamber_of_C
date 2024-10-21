@@ -1,82 +1,118 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// Node structure for the doubly linked list
+// Node structure for the circular doubly linked list
 struct Node
 {
     int data;
-    struct Node *prev;
     struct Node *next;
+    struct Node *prev;
 };
 
-// Insert at the end of the doubly linked list
+// Insert a node at the end of the circular doubly linked list
 void insert(struct Node **head_ref, int new_data)
 {
     struct Node *new_node = (struct Node *)malloc(sizeof(struct Node));
-    struct Node *last = *head_ref;
     new_node->data = new_data;
-    new_node->next = NULL;
 
     if (*head_ref == NULL)
     {
-        new_node->prev = NULL;
+        new_node->next = new_node;
+        new_node->prev = new_node;
         *head_ref = new_node;
         return;
     }
 
-    while (last->next != NULL)
-        last = last->next;
+    struct Node *last = (*head_ref)->prev;
 
-    last->next = new_node;
+    new_node->next = *head_ref;
+    (*head_ref)->prev = new_node;
     new_node->prev = last;
+    last->next = new_node;
 }
 
-// Display the doubly linked list
-void display(struct Node *node)
+// Display the circular doubly linked list
+void display(struct Node *head)
 {
-    struct Node *last;
-    printf("Traversal in forward direction:\n");
-    while (node != NULL)
+    if (head == NULL)
     {
-        printf("%d ", node->data);
-        last = node;
-        node = node->next;
+        printf("List is empty.\n");
+        return;
     }
+
+    struct Node *temp = head;
+    printf("Traversal in forward direction:\n");
+    do
+    {
+        printf("%d ", temp->data);
+        temp = temp->next;
+    } while (temp != head);
+    printf("\n");
+
+    printf("Traversal in reverse direction:\n");
+    temp = head->prev;
+    do
+    {
+        printf("%d ", temp->data);
+        temp = temp->prev;
+    } while (temp->next != head);
     printf("\n");
 }
 
-// Delete a node from the doubly linked list
+// Delete a node from the circular doubly linked list
 void deleteNode(struct Node **head_ref, int key)
 {
-    struct Node *temp = *head_ref;
-
     if (*head_ref == NULL)
         return;
 
-    while (temp != NULL && temp->data != key)
-        temp = temp->next;
+    struct Node *current = *head_ref;
 
-    if (temp == NULL)
+    while (current->data != key)
+    {
+        current = current->next;
+        if (current == *head_ref)
+        {
+            printf("Element %d not found in the list.\n", key);
+            return;
+        }
+    }
+
+    if (current->next == *head_ref && current->prev == *head_ref)
+    {
+        *head_ref = NULL;
+        free(current);
         return;
+    }
 
-    if (*head_ref == temp)
-        *head_ref = temp->next;
+    if (current == *head_ref)
+    {
+        struct Node *last = (*head_ref)->prev;
+        *head_ref = current->next;
+        last->next = *head_ref;
+        (*head_ref)->prev = last;
+        free(current);
+        return;
+    }
 
-    if (temp->next != NULL)
-        temp->next->prev = temp->prev;
+    current->prev->next = current->next;
+    current->next->prev = current->prev;
 
-    if (temp->prev != NULL)
-        temp->prev->next = temp->next;
-
-    free(temp);
+    free(current);
 }
 
-// Search for a key in the doubly linked list
+// Search for a specific value in the circular doubly linked list
 void search(struct Node *head, int key)
 {
+    if (head == NULL)
+    {
+        printf("List is empty.\n");
+        return;
+    }
+
     struct Node *temp = head;
     int pos = 0;
-    while (temp != NULL)
+
+    do
     {
         if (temp->data == key)
         {
@@ -85,20 +121,26 @@ void search(struct Node *head, int key)
         }
         temp = temp->next;
         pos++;
-    }
+    } while (temp != head);
+
     printf("Element %d not found in the list\n", key);
 }
 
-// Count the number of nodes in the doubly linked list
+// Count the number of nodes in the circular doubly linked list
 int count(struct Node *head)
 {
-    int count = 0;
+    if (head == NULL)
+        return 0;
+
     struct Node *temp = head;
-    while (temp != NULL)
+    int count = 0;
+
+    do
     {
         count++;
         temp = temp->next;
-    }
+    } while (temp != head);
+
     return count;
 }
 
@@ -109,7 +151,7 @@ int main()
 
     while (1)
     {
-        printf("\nDoubly Linked List Operations:\n");
+        printf("\nCircular Doubly Linked List Operations:\n");
         printf("1. Insert\n");
         printf("2. Display\n");
         printf("3. Delete\n");
