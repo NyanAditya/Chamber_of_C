@@ -1,6 +1,7 @@
 // program to implement singly linked list
 
 #include <stdio.h>
+#include <stdlib.h>
 
 // Core structure of Node that forms Linked List
 struct node
@@ -52,11 +53,11 @@ void insertPos(int data, int pos)
     struct node *new_node = (struct node *)malloc(sizeof(struct node));
 
     new_node->data = data;
-    
+
     int curr_pos = 0;
     struct node *temp = head;
 
-    while(temp->next != NULL && curr_pos < pos-1)
+    while (temp->next != NULL && curr_pos < pos - 1)
     {
         temp = temp->next;
         curr_pos++;
@@ -64,7 +65,6 @@ void insertPos(int data, int pos)
 
     new_node->next = temp->next;
     temp->next = new_node;
-
 }
 
 void deleteFirst()
@@ -91,7 +91,7 @@ void deleteEnd()
     struct node *temp = head;
     struct node *prev = NULL;
 
-    while(temp->next != NULL)
+    while (temp->next != NULL)
     {
         prev = temp;
         temp = temp->next;
@@ -113,7 +113,7 @@ void deletePos(int pos)
     struct node *prev = NULL;
     int curr_pos = 0;
 
-    while(temp->next != NULL && curr_pos < pos-1)
+    while (temp->next != NULL && curr_pos < pos - 1)
     {
         prev = temp;
         temp = temp->next;
@@ -128,7 +128,7 @@ void display()
 {
     struct node *temp = head;
 
-    while(temp != NULL)
+    while (temp != NULL)
     {
         printf("%d -> ", temp->data);
         temp = temp->next;
@@ -153,49 +153,49 @@ int main()
     int data;
     int pos;
 
-    while(1)
+    while (1)
     {
         printf("Enter your choice: ");
         scanf("%d", &choice);
 
-        switch(choice)
+        switch (choice)
         {
-            case 1:
-                printf("Enter the data to be inserted: ");
-                scanf("%d", &data);
-                insertFirst(data);
-                break;
-            case 2:
-                printf("Enter the data to be inserted: ");
-                scanf("%d", &data);
-                insertEnd(data);
-                break;
-            case 3:
-                printf("Enter the data to be inserted: ");
-                scanf("%d", &data);
-                printf("Enter the position to insert the data: ");
-                scanf("%d", &pos);
-                insertPos(data, pos);
-                break;
-            case 4:
-                deleteFirst();
-                break;
-            case 5:
-                deleteEnd();
-                break;
-            case 6:
-                printf("Enter the position to delete the data: ");
-                scanf("%d", &pos);
-                deletePos(pos);
-                break;
-            case 7:
-                display();
-                break;
-            case 8:
-                exit(0);
-            default:
-                printf("Invalid choice");
-                break;
+        case 1:
+            printf("Enter the data to be inserted: ");
+            scanf("%d", &data);
+            insertFirst(data);
+            break;
+        case 2:
+            printf("Enter the data to be inserted: ");
+            scanf("%d", &data);
+            insertEnd(data);
+            break;
+        case 3:
+            printf("Enter the data to be inserted: ");
+            scanf("%d", &data);
+            printf("Enter the position to insert the data: ");
+            scanf("%d", &pos);
+            insertPos(data, pos);
+            break;
+        case 4:
+            deleteFirst();
+            break;
+        case 5:
+            deleteEnd();
+            break;
+        case 6:
+            printf("Enter the position to delete the data: ");
+            scanf("%d", &pos);
+            deletePos(pos);
+            break;
+        case 7:
+            display();
+            break;
+        case 8:
+            exit(0);
+        default:
+            printf("Invalid choice");
+            break;
         }
     }
 
