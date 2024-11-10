@@ -5,6 +5,6 @@
 -- Check for working C compiler: C:/Users/adtya/AppData/Local/Programs/CLion Nova/bin/mingw/bin/gcc.exe - skipped
 -- Detecting C compile features
 -- Detecting C compile features - done
--- Configuring done (3.7s)
--- Generating done (0.0s)
+-- Configuring done (3.3s)
+-- Generating done (0.1s)
 -- Build files have been written to: D:/Code/Chamber_of_C/cmake-build-debug
