@@ -54,7 +54,7 @@ int dequeue(struct QueueLinkedList *queue)
     if (isEmpty(queue))
     {
         printf("Queue underflow!\n");
-        return -1; // Return -1 for underflow
+        return -1;
     }
     struct Node *temp = queue->front;
     int dequeued_value = temp->data;
@@ -76,7 +76,7 @@ int peek(struct QueueLinkedList *queue)
     if (isEmpty(queue))
     {
         printf("Queue is empty!\n");
-        return -1; // Return -1 if empty
+        return -1;
     }
     return queue->front->data;
 }
@@ -104,14 +104,16 @@ int main()
     struct QueueLinkedList *queue = createQueue();
     int choice, value;
 
+    printf("\nQueue Operations (Linked List Implementation):\n");
+    printf("1. Enqueue\n");
+    printf("2. Dequeue\n");
+    printf("3. Peek\n");
+    printf("4. Display\n");
+    printf("5. Exit\n");
+
     while (1)
     {
-        printf("\nQueue Operations (Linked List Implementation):\n");
-        printf("1. Enqueue\n");
-        printf("2. Dequeue\n");
-        printf("3. Peek\n");
-        printf("4. Display\n");
-        printf("5. Exit\n");
+
         printf("Enter your choice: ");
         scanf("%d", &choice);
 
@@ -121,19 +123,25 @@ int main()
             printf("Enter the value to enqueue: ");
             scanf("%d", &value);
             enqueue(queue, value);
+            printf("\n");
             break;
         case 2:
             value = dequeue(queue);
             if (value != -1)
                 printf("Dequeued value: %d\n", value);
+
+            printf("\n");
             break;
         case 3:
             value = peek(queue);
             if (value != -1)
                 printf("Front value: %d\n", value);
+
+            printf("\n");
             break;
         case 4:
             display(queue);
+            printf("\n");
             break;
         case 5:
             // Free linked list nodes (cleanup)

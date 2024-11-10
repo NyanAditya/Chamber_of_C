@@ -44,7 +44,7 @@ int pop(struct StackLinkedList *stack)
     if (isEmpty(stack))
     {
         printf("Stack underflow!\n");
-        return -1; // Return -1 for underflow
+        return -1;
     }
     struct Node *temp = stack->top;
     int popped_value = temp->data;
@@ -59,7 +59,7 @@ int peek(struct StackLinkedList *stack)
     if (isEmpty(stack))
     {
         printf("Stack is empty!\n");
-        return -1; // Return -1 if empty
+        return -1;
     }
     return stack->top->data;
 }
@@ -87,14 +87,16 @@ int main()
     struct StackLinkedList *stack = createStack();
     int choice, value;
 
+    printf("\nStack Operations (Linked List Implementation):\n");
+    printf("1. Push\n");
+    printf("2. Pop\n");
+    printf("3. Peek\n");
+    printf("4. Display\n");
+    printf("5. Exit\n");
+
     while (1)
     {
-        printf("\nStack Operations (Linked List Implementation):\n");
-        printf("1. Push\n");
-        printf("2. Pop\n");
-        printf("3. Peek\n");
-        printf("4. Display\n");
-        printf("5. Exit\n");
+
         printf("Enter your choice: ");
         scanf("%d", &choice);
 
@@ -104,19 +106,25 @@ int main()
             printf("Enter the value to push: ");
             scanf("%d", &value);
             push(stack, value);
+            printf("\n");
             break;
         case 2:
             value = pop(stack);
             if (value != -1)
                 printf("Popped value: %d\n", value);
+
+            printf("\n");
             break;
         case 3:
             value = peek(stack);
             if (value != -1)
                 printf("Top value: %d\n", value);
+
+            printf("\n");
             break;
         case 4:
             display(stack);
+            printf("\n");
             break;
         case 5:
             // Free linked list nodes (cleanup)
