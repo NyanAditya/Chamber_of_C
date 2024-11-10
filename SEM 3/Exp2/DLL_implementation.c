@@ -107,15 +107,16 @@ int main()
     struct Node *head = NULL;
     int choice, value, key;
 
+    printf("\nDoubly Linked List Operations:\n");
+    printf("1. Insert\n");
+    printf("2. Display\n");
+    printf("3. Delete\n");
+    printf("4. Search\n");
+    printf("5. Count\n");
+    printf("6. Exit\n");
+
     while (1)
     {
-        printf("\nDoubly Linked List Operations:\n");
-        printf("1. Insert\n");
-        printf("2. Display\n");
-        printf("3. Delete\n");
-        printf("4. Search\n");
-        printf("5. Count\n");
-        printf("6. Exit\n");
         printf("Enter your choice: ");
         scanf("%d", &choice);
 
@@ -125,22 +126,27 @@ int main()
             printf("Enter the value to insert: ");
             scanf("%d", &value);
             insert(&head, value);
+            printf("\n");
             break;
         case 2:
             display(head);
+            printf("\n");
             break;
         case 3:
             printf("Enter the value to delete: ");
             scanf("%d", &key);
             deleteNode(&head, key);
+            printf("\n");
             break;
         case 4:
             printf("Enter the value to search: ");
             scanf("%d", &key);
             search(head, key);
+            printf("\n");
             break;
         case 5:
             printf("The number of nodes in the list: %d\n", count(head));
+            printf("\n");
             break;
         case 6:
             exit(0);
