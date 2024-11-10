@@ -90,7 +90,6 @@ void deleteNode(struct Node **head_ref, int key)
     }
 }
 
-// Search for a specific value in the circular linked list
 void search(struct Node *head, int key)
 {
     struct Node *temp = head;
@@ -116,7 +115,6 @@ void search(struct Node *head, int key)
     printf("Element %d not found in the list\n", key);
 }
 
-// Count the number of nodes in the circular linked list
 int count(struct Node *head)
 {
     int count = 0;
@@ -139,8 +137,6 @@ int main()
     struct Node *head = NULL;
     int choice, value, key;
 
-    while (1)
-    {
         printf("\nCircular Linked List Operations:\n");
         printf("1. Insert\n");
         printf("2. Display\n");
@@ -148,6 +144,10 @@ int main()
         printf("4. Search\n");
         printf("5. Count\n");
         printf("6. Exit\n");
+
+    while (1)
+    {
+
         printf("Enter your choice: ");
         scanf("%d", &choice);
 
@@ -157,22 +157,27 @@ int main()
             printf("Enter the value to insert: ");
             scanf("%d", &value);
             insert(&head, value);
+            printf("\n");
             break;
         case 2:
             display(head);
+            printf("\n");
             break;
         case 3:
             printf("Enter the value to delete: ");
             scanf("%d", &key);
             deleteNode(&head, key);
+            printf("\n");
             break;
         case 4:
             printf("Enter the value to search: ");
             scanf("%d", &key);
             search(head, key);
+            printf("\n");
             break;
         case 5:
             printf("The number of nodes in the list: %d\n", count(head));
+            printf("\n");
             break;
         case 6:
             exit(0);
