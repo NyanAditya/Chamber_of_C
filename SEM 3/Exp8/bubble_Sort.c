@@ -17,13 +17,3 @@ void bubbleSort(int arr[], int size)
         }
     }
 }
-
-// Function to display the array
-void display(int arr[], int size)
-{
-    for (int i = 0; i < size; i++)
-    {
-        printf("%d ", arr[i]);
-    }
-    printf("\n");
-}

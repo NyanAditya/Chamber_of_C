@@ -1,39 +1,62 @@
-// Function to perform bucket sort
-void bucketSort(float arr[], int size)
+#include <stdio.h>
+#include <stdlib.h>
+
+#define BUCKET_SIZE 10
+
+typedef struct Bucket
 {
-    // Create buckets
-    int bucketCount = 10;             // Number of buckets
-    float buckets[bucketCount][size]; // 2D array to hold buckets
-    int bucketSizes[bucketCount];     // Array to hold the size of each bucket
+    int count;
+    int *values;
+} Bucket;
 
-    // Initialize bucket sizes to 0
-    for (int i = 0; i < bucketCount; i++)
-        bucketSizes[i] = 0;
+void bucketSort(int array[], int n);
+void insertionSort(int array[], int n);
 
-    // Insert elements into buckets
-    for (int i = 0; i < size; i++)
+void bucketSort(int array[], int n)
+{
+    Bucket buckets[BUCKET_SIZE];
+    for (int i = 0; i < BUCKET_SIZE; i++)
     {
-        int bucketIndex = (int)(bucketCount * arr[i]);             // Determine bucket index
-        buckets[bucketIndex][bucketSizes[bucketIndex]++] = arr[i]; // Place element in bucket
+        buckets[i].count = 0;
+        buckets[i].values = (int *)malloc(n * sizeof(int));
     }
 
-    // Sort individual buckets
-    for (int i = 0; i < bucketCount; i++)
+    for (int i = 0; i < n; i++)
     {
-        if (bucketSizes[i] > 0)
+        int bucketIndex = array[i] / BUCKET_SIZE;
+        buckets[bucketIndex].values[buckets[bucketIndex].count++] = array[i];
+    }
+
+    for (int i = 0; i < BUCKET_SIZE; i++)
+    {
+        if (buckets[i].count > 0)
         {
-            // Sort the bucket (using insertion sort here)
-            insertionSort(buckets[i], bucketSizes[i]);
+            insertionSort(buckets[i].values, buckets[i].count);
         }
     }
 
-    // Concatenate all buckets into the original array
     int index = 0;
-    for (int i = 0; i < bucketCount; i++)
+    for (int i = 0; i < BUCKET_SIZE; i++)
     {
-        for (int j = 0; j < bucketSizes[i]; j++)
+        for (int j = 0; j < buckets[i].count; j++)
         {
-            arr[index++] = buckets[i][j];
+            array[index++] = buckets[i].values[j];
         }
+        free(buckets[i].values);
+    }
+}
+
+void insertionSort(int array[], int n)
+{
+    for (int i = 1; i < n; i++)
+    {
+        int key = array[i];
+        int j = i - 1;
+        while (j >= 0 && array[j] > key)
+        {
+            array[j + 1] = array[j];
+            j--;
+        }
+        array[j + 1] = key;
     }
 }

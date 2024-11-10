@@ -42,6 +42,13 @@ void display(struct Node *node)
         last = node;
         node = node->next;
     }
+
+    printf("\nTraversal in reverse direction:\n");
+    while (last != NULL)
+    {
+        printf("%d ", last->data);
+        last = last->prev;
+    }
     printf("\n");
 }
 
