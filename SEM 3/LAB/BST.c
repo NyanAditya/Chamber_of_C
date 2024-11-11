@@ -36,6 +36,7 @@ void insert(struct node *root, int data)
             insert(root->left, data);
         }
     }
+
     else
     {
         if (root->right == NULL)
@@ -53,16 +54,6 @@ void insert(struct node *root, int data)
     }
 }
 
-void inorder(struct node *root)
-{
-    if (root != NULL)
-    {
-        inorder(root->left);
-        printf("%d ", root->data);
-        inorder(root->right);
-    }
-}
-
 void preorder(struct node *root)
 {
     if (root != NULL)
@@ -70,6 +61,16 @@ void preorder(struct node *root)
         printf("%d ", root->data);
         preorder(root->left);
         preorder(root->right);
+    }
+}
+
+void inorder(struct node *root)
+{
+    if (root != NULL)
+    {
+        inorder(root->left);
+        printf("%d ", root->data);
+        inorder(root->right);
     }
 }
 
