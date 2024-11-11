@@ -155,11 +155,11 @@ void delete(struct node *root, int data)
     else if (temp->left == NULL || temp->right == NULL)
     {
         struct node *child = temp->left == NULL ? temp->right : temp->left;
-        if (parent->left == temp)
+        if (parent->left == temp) // temp is left child of parent
         {
             parent->left = child;
         }
-        else
+        else // temp is right child of parent
         {
             parent->right = child;
         }
@@ -192,17 +192,56 @@ void delete(struct node *root, int data)
 int main()
 {
     struct node *root = NULL;
-    createNode(&root, 10);
-    insert(root, 5);
-    insert(root, 15);
-    insert(root, 3);
-    insert(root, 7);
-    insert(root, 12);
-    insert(root, 18);
-    display(root);
-    printf("Search 7: %d\n", search(root, 7));
-    printf("Search 8: %d\n", search(root, 8));
-    delete (root, 7);
-    display(root);
+    int choice, data;
+
+    printf("\nMenu:\n");
+    printf("1. Insert element into BST\n");
+    printf("2. Delete element from BST\n");
+    printf("3. Search element in BST\n");
+    printf("4. Display BST (Inorder, Preorder, Postorder)\n");
+    printf("5. Exit\n");
+
+    while (1)
+    {
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
+
+        switch (choice)
+        {
+        case 1:
+            printf("Enter data to insert: ");
+            scanf("%d", &data);
+            if (root == NULL)
+                createNode(&root, data);
+            else
+                insert(root, data);
+
+            printf("\n");
+            break;
+        case 2:
+            printf("Enter data to delete: ");
+            scanf("%d", &data);
+            delete (root, data);
+            printf("\n");
+            break;
+        case 3:
+            printf("Enter data to search: ");
+            scanf("%d", &data);
+            if (search(root, data))
+                printf("Element found\n");
+            else
+                printf("Element not found\n");
+            printf("\n");
+            break;
+        case 4:
+            display(root);
+            printf("\n");
+            break;
+        case 5:
+            exit(0);
+        default:
+            printf("Invalid choice\n");
+        }
+    }
     return 0;
 }
