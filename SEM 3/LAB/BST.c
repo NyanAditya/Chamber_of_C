@@ -90,11 +90,11 @@ int search(struct node *root, int data)
     {
         return 0;
     }
-    if (root->data == data)
+    else if (root->data == data)
     {
         return 1;
     }
-    if (root->data > data)
+    else if (root->data > data)
     {
         return search(root->left, data);
     }
@@ -136,6 +136,8 @@ void delete(struct node *root, int data)
         printf("Element not found\n");
         return;
     }
+
+    // Case 1: No child
     if (temp->left == NULL && temp->right == NULL)
     {
         if (parent->left == temp)
@@ -148,6 +150,8 @@ void delete(struct node *root, int data)
         }
         free(temp);
     }
+
+    // Case 2: One child
     else if (temp->left == NULL || temp->right == NULL)
     {
         struct node *child = temp->left == NULL ? temp->right : temp->left;
@@ -161,6 +165,8 @@ void delete(struct node *root, int data)
         }
         free(temp);
     }
+
+    // Case 3: Two children
     else
     {
         struct node *successor = temp->right;
