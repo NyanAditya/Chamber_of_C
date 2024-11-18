@@ -57,34 +57,42 @@ int apply_operator(char operator, int op1, int op2)
         exit(1);
     }
 }
+
 int evaluate_postfix(char *expression)
 {
-    for (int i = 0; expression[i] != '\0'; i++)
+    int i = 0;
+    while (expression[i] != '\0')
     {
-        char token = expression[i];
-
-        if (isspace(token))
+        if (isspace(expression[i]))
         {
+            i++;
             continue; // Skip spaces
         }
-        else if (isdigit(token))
+        else if (isdigit(expression[i]))
         {
-            push(token - '0'); // Convert char digit to int and push
+            // Read full number
+            int number = 0;
+            while (isdigit(expression[i]))
+            {
+                number = number * 10 + (expression[i] - '0');
+                i++;
+            }
+            push(number);
         }
-        else if (isOperator(token))
+        else if (isOperator(expression[i]))
         {
             int op2 = pop();
             int op1 = pop();
-            int result = apply_operator(token, op1, op2);
+            int result = apply_operator(expression[i], op1, op2);
             push(result);
+            i++;
         }
         else
         {
-            printf("Invalid character in expression: %c\n", token);
+            printf("Invalid character in expression: %c\n", expression[i]);
             exit(1);
         }
     }
-
     return pop(); // Final result
 }
 
