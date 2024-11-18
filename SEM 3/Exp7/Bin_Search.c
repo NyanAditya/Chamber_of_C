@@ -26,6 +26,25 @@ int binarySearch(int arr[], int size, int key)
     return -1; // Return -1 if the element is not found
 }
 
+int binarySearchRecursive(int arr[], int left, int right, int key)
+{
+    if (left <= right)
+    {
+        int mid = left + (right - left) / 2;
+
+        if (arr[mid] == key)
+        {
+            return mid; // Return the index of the found element
+        }
+        if (arr[mid] < key)
+        {
+            return binarySearchRecursive(arr, mid + 1, right, key); // Search in the right half
+        }
+        return binarySearchRecursive(arr, left, mid - 1, key); // Search in the left half
+    }
+    return -1; // Return -1 if the element is not found
+}
+
 int main()
 {
     int arr[] = { 1, 3, 5, 7, 9, 11, 13, 15, 17, 19}; // Note: Array must be sorted for binary search
