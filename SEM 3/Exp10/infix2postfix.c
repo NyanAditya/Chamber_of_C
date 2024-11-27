@@ -62,7 +62,17 @@ void infix2postfix(char *infix, char *postfix) {
             postfix[j++] = ch;
         }
 
-        else if (precidence(ch) != 0) {
+        else if (ch == '(') {
+            push(&stk, ch);
+        }
+
+        else if (ch == ')') {
+            while (!isEmpty(&stk) && peek(&stk) != '(') {
+                postfix[j++] = pop(&stk);
+            }
+        }
+
+        else {
             while (!isEmpty(&stk) && precidence(peek(&stk)) >= precidence(ch)) {
                 postfix[j++] = pop(&stk);
             }
