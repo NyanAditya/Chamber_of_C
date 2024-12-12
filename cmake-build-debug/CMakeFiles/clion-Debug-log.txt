@@ -1,10 +1,31 @@
-"C:\Users\adtya\AppData\Local\Programs\CLion Nova\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=C:/Users/adtya/AppData/Local/Programs/CLion Nova/bin/ninja/win/x64/ninja.exe" -G Ninja -S D:\Code\Chamber_of_C -B D:\Code\Chamber_of_C\cmake-build-debug
+"C:\Users\adtya\AppData\Local\Programs\CLion Nova\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "MinGW Makefiles" -S D:\SelfRepoClone\Chamber_of_C -B D:\SelfRepoClone\Chamber_of_C\cmake-build-debug
 -- The C compiler identification is GNU 13.1.0
+-- The CXX compiler identification is GNU 13.1.0
 -- Detecting C compiler ABI info
 -- Detecting C compiler ABI info - done
 -- Check for working C compiler: C:/Users/adtya/AppData/Local/Programs/CLion Nova/bin/mingw/bin/gcc.exe - skipped
 -- Detecting C compile features
 -- Detecting C compile features - done
--- Configuring done (3.3s)
--- Generating done (0.1s)
--- Build files have been written to: D:/Code/Chamber_of_C/cmake-build-debug
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: C:/Users/adtya/AppData/Local/Programs/CLion Nova/bin/mingw/bin/g++.exe - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+CMake Error at CMakeLists.txt:11 (find_package):
+  By not providing "FindCheck.cmake" in CMAKE_MODULE_PATH this project has
+  asked CMake to find a package configuration file provided by "Check", but
+  CMake did not find one.
+
+  Could not find a package configuration file provided by "Check" with any of
+  the following names:
+
+    CheckConfig.cmake
+    check-config.cmake
+
+  Add the installation prefix of "Check" to CMAKE_PREFIX_PATH or set
+  "Check_DIR" to a directory containing one of the above files.  If "Check"
+  provides a separate development package or SDK, be sure it has been
+  installed.
+
+
+-- Configuring incomplete, errors occurred!

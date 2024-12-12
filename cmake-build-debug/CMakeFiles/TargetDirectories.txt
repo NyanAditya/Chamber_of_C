@@ -1,3 +1,0 @@
-D:/Code/Chamber_of_C/cmake-build-debug/CMakeFiles/Chamber_of_C.dir
-D:/Code/Chamber_of_C/cmake-build-debug/CMakeFiles/edit_cache.dir
-D:/Code/Chamber_of_C/cmake-build-debug/CMakeFiles/rebuild_cache.dir
