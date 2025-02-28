@@ -1,15 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-struct Node
+struct ListElement
 {
     int data;
-    struct Node *next;
+    struct ListElement *next;
 };
 
 struct Queue
 {
-    struct Node *front, *rear;
+    struct ListElement *front, *rear;
 };
 
 struct Queue *createQueue()
@@ -21,7 +21,7 @@ struct Queue *createQueue()
 
 void enqueue(struct Queue *q, int value)
 {
-    struct Node *temp = malloc(sizeof(struct Node));
+    struct ListElement *temp = malloc(sizeof(struct ListElement));
     temp->data = value;
     temp->next = NULL;
     if (q->rear == NULL)
@@ -37,7 +37,7 @@ int dequeue(struct Queue *q)
 {
     if (q->front == NULL)
         return -1; // Queue is empty
-    struct Node *temp = q->front;
+    struct ListElement *temp = q->front;
     int value = temp->data;
     q->front = q->front->next;
     if (q->front == NULL)
