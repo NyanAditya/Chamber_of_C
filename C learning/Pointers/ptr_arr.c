@@ -6,15 +6,14 @@ int main() {
 
     int *p_arr = arr;
 
+    char *s = "Hello";
+
+    printf("*s = %s\n", s);
+
     printf("Value of arr[0] through p_arr: %d\n", *p_arr);
-    
-    char str[5] = "Hello";
-    char s[] = "Hello";
-
-    printf("Value of str: %s\n", str);
-    printf("Value of s: %s\n", s);
-
-    printf("Value of str[5]: %c\n", str[4]);
-    printf("Value of s[5]: %c\n", s[5]);
-
+    printf("Size of s = %d\n", sizeof(s));
+    printf("Size of arr: %lu bytes\n", sizeof(arr));
+    printf("Size of arr[0]: %lu bytes\n", sizeof(arr[0]));
+    printf("Size of ptr: %lu bytes\n", sizeof(ptr));
+    printf("Size of *ptr: %lu bytes\n", sizeof(*ptr));
 }
